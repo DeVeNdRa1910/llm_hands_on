@@ -23,6 +23,16 @@ def create_story_chain():
         story_prompt | model | StrOutputParser()
     )
 
+    generated_story = story_chain.invoke({
+        "theme": "Crime Thriller",
+        "character": "A servival story of girl",
+        "setting": "new girl for prostitution"
+    })
+
+    print('Story: ', generated_story)
+
+    print("?????????????????????????????????????????????????????????")
+
     # creating a function to pass the story to analysis
     def analyze_story(story_text):
         return {"story": story_text}
@@ -43,8 +53,7 @@ chain = create_story_chain()
 
 response = chain.invoke({
     "theme": "Crime Thriller",
-    "character": "a prostitute girl",
+    "character": "A servival story of girl",
     "setting": "new girl for prostitution"
-
 })
 print(response)
