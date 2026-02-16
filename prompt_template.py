@@ -21,3 +21,7 @@ prompt = translation_template.invoke({
 translated_response = model.invoke(prompt)
 
 print(translated_response.content)
+
+# Print response in the chunks
+for chunk in model.stream(prompt):
+    print(chunk.content, end="", flush=True)
